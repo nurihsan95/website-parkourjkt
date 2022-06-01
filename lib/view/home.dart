@@ -166,9 +166,11 @@ class Body extends StatelessWidget {
                   width: 1,
                 ),
               ),
-              child: Text(
-                'Area Sponsor dan Sosmed PJKT',
-                textAlign: TextAlign.center,
+              child: Center(
+                child: Text(
+                  'Area Sponsor dan Sosmed PJKT',
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ],

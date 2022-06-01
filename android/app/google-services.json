@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "719821557414",
+    "project_id": "parkour-jakarta-15-anniv",
+    "storage_bucket": "parkour-jakarta-15-anniv.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719821557414:android:292f18ec484a1f3f38ee67",
+        "android_client_info": {
+          "package_name": "com.example.website_parkourjkt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719821557414-qupf7r4kisg92v16d9ve72v9olvlvahb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbhs4m8zZPQNFkJBhM0UxV8-LUuHlubBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719821557414-qupf7r4kisg92v16d9ve72v9olvlvahb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "719821557414-f5t13qdv7chqn9095noqq1hfhcnbf5bl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.websiteParkourjkt"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
