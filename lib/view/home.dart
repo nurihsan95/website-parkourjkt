@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:website_parkourjkt/resource/resource.dart';
+import 'package:website_parkourjkt/view/countdown.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -49,7 +51,6 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: screenSize.width,
       height: screenSize.height,
       color: Colors.black,
       child: Column(
@@ -57,13 +58,101 @@ class Header extends StatelessWidget {
         children: [
           Image(
             image: AssetImage(
-              'images/pjkt.jpeg',
+              'images/pjkt_logo.jpg',
             ),
           ),
-          Text(
-            'Parkour Jakarta 15th Anniversary',
-            style: TextStyle(color: Colors.white),
+          FittedBox(
+            alignment: Alignment.centerLeft,
+            child: RichText(
+              text: TextSpan(
+                text: 'Parkour Jakarta 15th Anniversary & Parkour Competition',
+                style: TextStyle(color: Colors.white, fontSize: 50),
+              ),
+              maxLines: 1,
+            ),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: (screenSize.width / 3) -
+                    ((screenSize.width * 0.1) + (screenSize.width * 0.1)),
+                child: FittedBox(
+                  child: Text.rich(
+                    TextSpan(
+                      children: <InlineSpan>[
+                        WidgetSpan(
+                          child: Icon(
+                            Icons.arrow_right,
+                            color: Colors.white,
+                            size: 60,
+                          ),
+                        ),
+                        TextSpan(
+                            text: 'Kids Speed Challenge',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 40)),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                width: (screenSize.width / 3) -
+                    ((screenSize.width * 0.1) + (screenSize.width * 0.1)),
+                child: FittedBox(
+                  child: Text.rich(
+                    TextSpan(
+                      children: <InlineSpan>[
+                        WidgetSpan(
+                          child: Icon(
+                            Icons.arrow_right,
+                            color: Colors.white,
+                            size: 60,
+                          ),
+                        ),
+                        TextSpan(
+                            text: 'Skill Competition',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 40)),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                width: (screenSize.width / 3) -
+                    ((screenSize.width * 0.1) + (screenSize.width * 0.1)),
+                child: FittedBox(
+                  child: Text.rich(
+                    TextSpan(
+                      style: TextStyle(fontSize: 20),
+                      children: <InlineSpan>[
+                        WidgetSpan(
+                          child: Icon(
+                            Icons.arrow_right,
+                            color: Colors.white,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'Speed Competition',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Icon(
+            Icons.arrow_drop_down_sharp,
+            color: Colors.white,
+            size: 60,
+          )
         ],
       ),
     );
@@ -83,11 +172,11 @@ class Body extends StatelessWidget {
     return Container(
       width: screenSize.width,
       color: Colors.white,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 25),
-        child: Column(
-          children: <Widget>[
-            Row(
+      child: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -117,69 +206,60 @@ class Body extends StatelessWidget {
                 )
               ],
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: 5,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 5,
+            ),
+          ),
+          FittedBox(
+            child: CountDownTimer(),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 5),
+          ),
+          const TabBarContent(),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 5),
+          ),
+          Container(
+            width: screenSize.width,
+            height: 50,
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 1,
               ),
             ),
-            Container(
-              width: screenSize.width,
-              height: 50,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 1,
-                ),
+            child: Text(
+              'Link pendaftaran',
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 5),
+          ),
+          Container(
+            width: screenSize.width,
+            height: 200,
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 1,
               ),
+            ),
+            child: Center(
               child: Text(
-                'Countdown pendaftaran',
+                'Area Sponsor dan Sosmed PJKT',
                 textAlign: TextAlign.center,
               ),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 5),
-            ),
-            const TabBarContent(),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 5),
-            ),
-            Container(
-              width: screenSize.width,
-              height: 50,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 1,
-                ),
-              ),
-              child: Text(
-                'Link pendaftaran',
-                textAlign: TextAlign.center,
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 5),
-            ),
-            Container(
-              width: screenSize.width,
-              height: 200,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 1,
-                ),
-              ),
-              child: Center(
-                child: Text(
-                  'Area Sponsor dan Sosmed PJKT',
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
 
+//TAB CONTENT
 class TabBarContent extends StatefulWidget {
   const TabBarContent({Key? key}) : super(key: key);
 
@@ -204,124 +284,132 @@ class _TabBarContentState extends State<TabBarContent>
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Container(
-        color: Colors.black,
-        width: double.maxFinite,
-        child: TabBar(
-          unselectedLabelColor: Colors.grey,
-          labelColor: Colors.white,
-          indicatorColor: Colors.yellow,
-          tabs: [
-            Tab(
-              text: 'Kids Speed Challenge',
-            ),
-            Tab(
-              text: 'Skill Competition',
-            ),
-            Tab(
-              text: 'Speed Competition',
-            )
-          ],
-          controller: _tabController,
+    return Column(
+      children: [
+        Container(
+          color: Colors.black,
+          width: double.maxFinite,
+          child: TabBar(
+            unselectedLabelColor: Colors.grey,
+            labelColor: Colors.yellow,
+            indicatorColor: Colors.yellow,
+            tabs: [
+              Tab(
+                text: 'Kids Speed Challenge',
+              ),
+              Tab(
+                text: 'Skill Competition',
+              ),
+              Tab(
+                text: 'Speed Competition',
+              )
+            ],
+            controller: _tabController,
+          ),
         ),
-      ),
-      Container(
-        width: double.maxFinite,
-        height: 500,
-        child: TabBarView(
-          controller: _tabController,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Container(
+            width: double.maxFinite,
+            height: 500,
+            child: TabBarView(
+              controller: _tabController,
               children: [
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      'Penjelasan kompetisi',
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          stringKidsCompetition,
+                          textAlign: TextAlign.justify,
+                        ),
+                      ),
                     ),
-                  ),
+                    Expanded(
+                      child: Container(
+                        width: 500,
+                        height: 500,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 1,
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Foto untuk kids speed challenge',
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
-                Expanded(
-                  child: Container(
-                    width: 500,
-                    height: 500,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          stringSkillCompetition,
+                          textAlign: TextAlign.justify,
+                        ),
                       ),
                     ),
-                    child: Center(
-                      child: Text(
-                        'Foto untuk kids speed challenge',
-                        textAlign: TextAlign.center,
+                    Expanded(
+                      child: Container(
+                        width: 500,
+                        height: 500,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 1,
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Foto untuk skill competition',
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          stringSpeedCompetition,
+                          textAlign: TextAlign.justify,
+                        ),
                       ),
                     ),
-                  ),
-                )
+                    Expanded(
+                      child: Container(
+                        width: 500,
+                        height: 500,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 1,
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Foto untuk speed competition',
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      'Penjelasan kompetisi',
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    width: 500,
-                    height: 500,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Foto untuk skill competition',
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      'Penjelasan kompetisi',
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    width: 500,
-                    height: 500,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Foto untuk speed competition',
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ],
-        ),
-      )
-    ]);
+          ),
+        )
+      ],
+    );
   }
 }
