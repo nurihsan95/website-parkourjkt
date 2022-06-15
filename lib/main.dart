@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'firebase_options.dart';
 import 'view/home.dart';
 
@@ -15,8 +16,22 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
+  Widget build(context) {
+    return MaterialApp(
+      builder: (context, child) => ResponsiveWrapper.builder(
+        child,
+        maxWidth: 1200,
+        minWidth: 480,
+        defaultScale: true,
+        breakpoints: [
+          ResponsiveBreakpoint.resize(480, name: MOBILE),
+          ResponsiveBreakpoint.resize(800, name: TABLET),
+          ResponsiveBreakpoint.resize(1000, name: DESKTOP),
+          ResponsiveBreakpoint.autoScale(2460, name: '4K'),
+        ],
+        background: Container(color: const Color(0xFFFFCC29)),
+      ),
+      initialRoute: Homepage.screenId,
       title: 'Parkour Jakarta 15th Anniversary',
       home: Homepage(),
     );
