@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       builder: (context, child) => ResponsiveWrapper.builder(
         child,
-        maxWidth: 1200,
+        maxWidth: 1000,
         minWidth: 480,
         defaultScale: true,
         breakpoints: [
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           ResponsiveBreakpoint.resize(1000, name: DESKTOP),
           ResponsiveBreakpoint.autoScale(2460, name: '4K'),
         ],
-        background: Container(color: const Color(0xFFFFCC29)),
+        background: Container(color: const Color(0xfffefefe)),
       ),
       initialRoute: Homepage.screenId,
       title: 'Parkour Jakarta 15th Anniversary',

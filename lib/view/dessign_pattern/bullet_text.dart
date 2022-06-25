@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:website_parkourjkt/resource/resource.dart';
 
 class BulletText extends StatelessWidget {
   const BulletText({Key? key, required this.text}) : super(key: key);
@@ -14,33 +15,15 @@ class BulletText extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: screenSize.width * 0.085,
-          alignment: Alignment.centerRight,
-          child: Icon(
-            FontAwesomeIcons.circle,
-            color: Colors.white,
-            size: 20,
-          ),
-        ),
-        SizedBox(width: screenSize.width * 0.009),
-        Container(
-          width: screenSize.width * 0.17,
-          alignment: Alignment.centerLeft,
-          child: AutoSizeText(
-            text,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-            ),
-            presetFontSizes: [14],
-            maxLines: 3,
-          ),
-        )
-      ],
+    return Container(
+      width: screenSize.width * 0.325,
+      child: AutoSizeText(
+        text,
+        textAlign: TextAlign.center,
+        style: SubContentStyle,
+        presetFontSizes: [20, 14],
+        maxLines: 2,
+      ),
     );
   }
 }

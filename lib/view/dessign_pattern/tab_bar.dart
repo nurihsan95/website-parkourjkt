@@ -33,59 +33,76 @@ class _TabBarContentState extends State<TabBarContent>
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          color: Colors.black,
-          height: widget.screenSize.height * 0.1,
-          width: double.maxFinite,
-          child: TabBar(
-            unselectedLabelColor: Colors.grey,
-            labelColor: Colors.yellow,
-            indicatorColor: Colors.yellow,
-            indicatorSize: TabBarIndicatorSize.tab,
-            labelStyle: TextStyle(fontSize: 16),
-            tabs: [
-              FittedBox(
-                fit: BoxFit.fitWidth,
-                child: Text(
-                  'Kids Speed\nChallenge',
-                  textAlign: TextAlign.center,
+        Expanded(
+          flex: 0,
+          child: Container(
+            color: Colors.white.withOpacity(0.5),
+            height: widget.screenSize.height * 0.075,
+            width: double.maxFinite,
+            child: TabBar(
+              unselectedLabelColor: Colors.grey,
+              labelColor: Color(0xFFFFcb05),
+              indicatorColor: Color(0xFFFFcb05),
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorWeight: 6,
+              labelStyle: TextStyle(fontSize: 16),
+              tabs: [
+                Container(
+                  width: widget.screenSize.width * 0.325,
+                  height: double.maxFinite,
+                  alignment: Alignment.center,
+                  child: AutoSizeText(
+                    'Kids Speed Challenge',
+                    textAlign: TextAlign.center,
+                    style: SubContentStyle,
+                  ),
                 ),
-              ),
-              FittedBox(
-                child: Text(
-                  'Skill\nCompetition',
-                  textAlign: TextAlign.center,
+                Container(
+                  width: widget.screenSize.width * 0.325,
+                  height: double.maxFinite,
+                  alignment: Alignment.center,
+                  child: AutoSizeText(
+                    'Skill Competition',
+                    textAlign: TextAlign.center,
+                    style: SubContentStyle,
+                  ),
                 ),
-              ),
-              FittedBox(
-                child: Text(
-                  'Speed\nCompetition',
-                  textAlign: TextAlign.center,
+                Container(
+                  width: widget.screenSize.width * 0.325,
+                  height: double.maxFinite,
+                  alignment: Alignment.center,
+                  child: AutoSizeText(
+                    'Speed Competition',
+                    textAlign: TextAlign.center,
+                    style: SubContentStyle,
+                  ),
                 ),
-              ),
-            ],
-            controller: _tabController,
+              ],
+              controller: _tabController,
+            ),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.all(widget.screenSize.width * 0.005),
+        Expanded(
+          flex: 1,
           child: Container(
             width: double.maxFinite,
-            height: widget.screenSize.height * 0.4,
             child: TabBarView(
               controller: _tabController,
               children: [
                 Contents(
+                  screenSize: widget.screenSize,
                   string: stringKidsCompetition,
                   image: 'images/kids.jpeg',
                 ),
                 Contents(
+                  screenSize: widget.screenSize,
                   string: stringSkillCompetition,
-                  image: 'images/kids.jpeg',
+                  image: 'images/skill_comp_pic.JPG',
                 ),
                 Contents(
+                  screenSize: widget.screenSize,
                   string: stringSpeedCompetition,
-                  image: 'images/kids.jpeg',
+                  image: 'images/speed_comp_pic.JPG',
                 ),
               ],
             ),
@@ -97,31 +114,23 @@ class _TabBarContentState extends State<TabBarContent>
 }
 
 class Contents extends StatelessWidget {
-  const Contents({Key? key, required this.string, required this.image})
+  const Contents(
+      {Key? key,
+      required this.string,
+      required this.image,
+      required this.screenSize})
       : super(key: key);
   final String string;
   final String image;
+  final Size screenSize;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Expanded(
-          child: Center(
-            child: AutoSizeText.rich(
-              TextSpan(
-                text: string,
-                style: TextStyle(
-                  fontSize: 14,
-                ),
-              ),
-              stepGranularity: 2,
-              textAlign: TextAlign.justify,
-            ),
-          ),
-        ),
-        Expanded(
+          flex: 2,
           child: Transform.rotate(
             angle: Math.pi / 180 * 0,
             child: Image.asset(
@@ -129,7 +138,18 @@ class Contents extends StatelessWidget {
               fit: BoxFit.contain,
             ),
           ),
-        )
+        ),
+        Expanded(
+          child: Container(
+            width: screenSize.width * 0.9,
+            alignment: Alignment.center,
+            child: AutoSizeText(
+              string,
+              style: ContentStyle,
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
       ],
     );
   }

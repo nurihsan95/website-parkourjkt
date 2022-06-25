@@ -1,5 +1,8 @@
 import 'dart:async';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:website_parkourjkt/resource/resource.dart';
 
 class CountDownTimer extends StatefulWidget {
   const CountDownTimer({Key? key}) : super(key: key);
@@ -20,6 +23,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
   }
 
   Timer? countdownTimer;
+
   static DateTime finalDateTime =
       DateTime(2022, 8, 28); //TODO: Set tanggal sebenarnya
   static DateTime currentDateTime = DateTime.now();
@@ -48,98 +52,191 @@ class _CountDownTimerState extends State<CountDownTimer> {
 
   @override
   Widget build(BuildContext context) {
+    _launchURL() async {
+      if (await canLaunchUrl(formUrl)) {
+        await launchUrl(formUrl);
+      } else {
+        throw 'Could not launch $formUrl';
+      }
+    }
+
     final days = (dateDifference.inDays).toString();
     final hours = (dateDifference.inHours.remainder(24)).toString();
     final minutes = (dateDifference.inMinutes.remainder(60).toString());
     final seconds = (dateDifference.inSeconds.remainder(60).toString());
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Center(
-          child: Text(
-            'Batas Pendaftaran',
-            style: TextStyle(fontSize: 20),
+        Expanded(
+          child: Container(
+            alignment: Alignment.bottomCenter,
+            child: AutoSizeText(
+              'Batas Pendaftaran'.toUpperCase(),
+              style: ContentStyle.copyWith(fontSize: 30),
+            ),
           ),
         ),
-        Row(
-          children: [
-            Column(
-              children: [
-                Text(
-                  days,
-                  style: TextStyle(fontSize: 50),
-                ),
-                Text(
-                  'HARI',
-                )
-              ],
+        Expanded(
+          flex: 3,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      child: AutoSizeText(
+                        days,
+                        style: ContentStyle.copyWith(fontSize: 20),
+                        presetFontSizes: [60, 40],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: AutoSizeText(
+                      'HARI',
+                      style: ContentStyle,
+                    ),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      child: AutoSizeText(
+                        ':',
+                        style: ContentStyle.copyWith(fontSize: 20),
+                        presetFontSizes: [60, 40],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: AutoSizeText(
+                      '',
+                    ),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      child: AutoSizeText(
+                        hours,
+                        style: ContentStyle.copyWith(fontSize: 20),
+                        presetFontSizes: [60, 40],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: AutoSizeText(
+                      'JAM',
+                      style: ContentStyle,
+                    ),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      child: AutoSizeText(
+                        ':',
+                        style: ContentStyle.copyWith(fontSize: 20),
+                        presetFontSizes: [60, 40],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: AutoSizeText(
+                      '',
+                    ),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      child: AutoSizeText(
+                        minutes,
+                        style: ContentStyle.copyWith(fontSize: 20),
+                        presetFontSizes: [60, 40],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: AutoSizeText(
+                      'MENIT',
+                      style: ContentStyle,
+                    ),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      child: AutoSizeText(
+                        ':',
+                        style: ContentStyle.copyWith(fontSize: 20),
+                        presetFontSizes: [60, 40],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: AutoSizeText(
+                      '',
+                    ),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      child: AutoSizeText(
+                        seconds,
+                        style: ContentStyle.copyWith(fontSize: 20),
+                        presetFontSizes: [60, 40],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: AutoSizeText(
+                      'DETIK',
+                      style: ContentStyle,
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              onPrimary: Color(0xFF000000),
+              primary: Color(0xFFFFcb05),
             ),
-            Column(
-              children: [
-                Text(
-                  ':',
-                  style: TextStyle(fontSize: 50),
-                ),
-                Text(
-                  '',
-                )
-              ],
+            onPressed: _launchURL,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 5),
+              child: AutoSizeText(
+                'Daftar Sekarang!'.toUpperCase(),
+                style: ContentStyle.copyWith(fontSize: 30),
+              ),
             ),
-            Column(
-              children: [
-                Text(
-                  hours,
-                  style: TextStyle(fontSize: 50),
-                ),
-                Text(
-                  'JAM',
-                )
-              ],
-            ),
-            Column(
-              children: [
-                Text(
-                  ':',
-                  style: TextStyle(fontSize: 50),
-                ),
-                Text(
-                  '',
-                )
-              ],
-            ),
-            Column(
-              children: [
-                Text(
-                  minutes,
-                  style: TextStyle(fontSize: 50),
-                ),
-                Text(
-                  'MENIT',
-                )
-              ],
-            ),
-            Column(
-              children: [
-                Text(
-                  ':',
-                  style: TextStyle(fontSize: 50),
-                ),
-                Text(
-                  '',
-                )
-              ],
-            ),
-            Column(
-              children: [
-                Text(
-                  seconds,
-                  style: TextStyle(fontSize: 50),
-                ),
-                Text(
-                  'DETIK',
-                )
-              ],
-            ),
-          ],
+          ),
         ),
       ],
     );
