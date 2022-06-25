@@ -77,7 +77,7 @@ class Header extends StatelessWidget {
                 stringHeader,
                 style: HeaderStyle,
                 textAlign: TextAlign.center,
-                presetFontSizes: [60, 40],
+                presetFontSizes: [60, 40, 30],
                 maxLines: 3,
               ),
             ),
@@ -256,12 +256,14 @@ class Body extends StatelessWidget {
           ),
           Flexible(
             child: Container(
-              width: screenSize.width * 0.95,
+              width: screenSize.width * 0.8,
+              height: screenSize.height * 0.1,
               alignment: Alignment.center,
               child: AutoSizeText(
                 stringBackgroundEvent,
                 textAlign: TextAlign.center,
                 style: ContentStyle,
+                maxLines: 5,
                 presetFontSizes: [20, 14],
               ),
             ),
@@ -307,7 +309,7 @@ class Footer extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 5,
+            flex: 6,
             child: TabBarContent(screenSize: screenSize),
           ),
           Expanded(

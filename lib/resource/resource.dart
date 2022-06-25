@@ -35,6 +35,11 @@ TextStyle ContentStyle = TextStyle(
   fontSize: 20,
 );
 
+TextStyle TabContentStyle = TextStyle(
+  fontFamily: 'Futura',
+  color: Color(0xFF000000),
+);
+
 TextStyle SubContentStyle = TextStyle(
   fontFamily: 'Futura',
   color: Color(0xFF000000),

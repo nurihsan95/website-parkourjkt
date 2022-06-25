@@ -85,12 +85,13 @@ class _CountDownTimerState extends State<CountDownTimer> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
+                    flex: 2,
                     child: Container(
-                      alignment: Alignment.bottomCenter,
+                      alignment: Alignment.center,
                       child: AutoSizeText(
                         days,
                         style: ContentStyle.copyWith(fontSize: 20),
-                        presetFontSizes: [60, 40],
+                        presetFontSizes: [60, 30, 14],
                       ),
                     ),
                   ),
@@ -98,6 +99,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
                     child: AutoSizeText(
                       'HARI',
                       style: ContentStyle,
+                      presetFontSizes: [20, 14],
                     ),
                   )
                 ],
@@ -105,12 +107,13 @@ class _CountDownTimerState extends State<CountDownTimer> {
               Column(
                 children: [
                   Expanded(
+                    flex: 2,
                     child: Container(
-                      alignment: Alignment.bottomCenter,
+                      alignment: Alignment.center,
                       child: AutoSizeText(
                         ':',
                         style: ContentStyle.copyWith(fontSize: 20),
-                        presetFontSizes: [60, 40],
+                        presetFontSizes: [60, 30, 14],
                       ),
                     ),
                   ),
@@ -124,12 +127,13 @@ class _CountDownTimerState extends State<CountDownTimer> {
               Column(
                 children: [
                   Expanded(
+                    flex: 2,
                     child: Container(
-                      alignment: Alignment.bottomCenter,
+                      alignment: Alignment.center,
                       child: AutoSizeText(
                         hours,
                         style: ContentStyle.copyWith(fontSize: 20),
-                        presetFontSizes: [60, 40],
+                        presetFontSizes: [60, 30, 14],
                       ),
                     ),
                   ),
@@ -137,6 +141,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
                     child: AutoSizeText(
                       'JAM',
                       style: ContentStyle,
+                      presetFontSizes: [20, 14],
                     ),
                   )
                 ],
@@ -144,12 +149,13 @@ class _CountDownTimerState extends State<CountDownTimer> {
               Column(
                 children: [
                   Expanded(
+                    flex: 2,
                     child: Container(
-                      alignment: Alignment.bottomCenter,
+                      alignment: Alignment.center,
                       child: AutoSizeText(
                         ':',
                         style: ContentStyle.copyWith(fontSize: 20),
-                        presetFontSizes: [60, 40],
+                        presetFontSizes: [60, 30, 14],
                       ),
                     ),
                   ),
@@ -163,12 +169,13 @@ class _CountDownTimerState extends State<CountDownTimer> {
               Column(
                 children: [
                   Expanded(
+                    flex: 2,
                     child: Container(
-                      alignment: Alignment.bottomCenter,
+                      alignment: Alignment.center,
                       child: AutoSizeText(
                         minutes,
                         style: ContentStyle.copyWith(fontSize: 20),
-                        presetFontSizes: [60, 40],
+                        presetFontSizes: [60, 30, 14],
                       ),
                     ),
                   ),
@@ -176,6 +183,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
                     child: AutoSizeText(
                       'MENIT',
                       style: ContentStyle,
+                      presetFontSizes: [20, 14],
                     ),
                   )
                 ],
@@ -183,12 +191,13 @@ class _CountDownTimerState extends State<CountDownTimer> {
               Column(
                 children: [
                   Expanded(
+                    flex: 2,
                     child: Container(
-                      alignment: Alignment.bottomCenter,
+                      alignment: Alignment.center,
                       child: AutoSizeText(
                         ':',
                         style: ContentStyle.copyWith(fontSize: 20),
-                        presetFontSizes: [60, 40],
+                        presetFontSizes: [60, 30, 14],
                       ),
                     ),
                   ),
@@ -202,12 +211,13 @@ class _CountDownTimerState extends State<CountDownTimer> {
               Column(
                 children: [
                   Expanded(
+                    flex: 2,
                     child: Container(
-                      alignment: Alignment.bottomCenter,
+                      alignment: Alignment.center,
                       child: AutoSizeText(
                         seconds,
                         style: ContentStyle.copyWith(fontSize: 20),
-                        presetFontSizes: [60, 40],
+                        presetFontSizes: [60, 30, 14],
                       ),
                     ),
                   ),
@@ -215,6 +225,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
                     child: AutoSizeText(
                       'DETIK',
                       style: ContentStyle,
+                      presetFontSizes: [20, 14],
                     ),
                   )
                 ],
@@ -223,6 +234,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
           ),
         ),
         Expanded(
+          flex: 2,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               onPrimary: Color(0xFF000000),
@@ -230,10 +242,11 @@ class _CountDownTimerState extends State<CountDownTimer> {
             ),
             onPressed: _launchURL,
             child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 5),
+              padding: EdgeInsets.symmetric(vertical: 2),
               child: AutoSizeText(
                 'Daftar Sekarang!'.toUpperCase(),
-                style: ContentStyle.copyWith(fontSize: 30),
+                style: ContentStyle,
+                presetFontSizes: [20, 14],
               ),
             ),
           ),

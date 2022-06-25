@@ -114,7 +114,7 @@ class _TabBarContentState extends State<TabBarContent>
 }
 
 class Contents extends StatelessWidget {
-  const Contents(
+  Contents(
       {Key? key,
       required this.string,
       required this.image,
@@ -123,14 +123,20 @@ class Contents extends StatelessWidget {
   final String string;
   final String image;
   final Size screenSize;
+  double? font;
 
   @override
   Widget build(BuildContext context) {
+    if (screenSize.width <= 720) {
+      font = 14;
+    } else {
+      font = ContentStyle.fontSize;
+    }
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Expanded(
-          flex: 2,
+          flex: 3,
           child: Transform.rotate(
             angle: Math.pi / 180 * 0,
             child: Image.asset(
@@ -139,14 +145,16 @@ class Contents extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(
+        Flexible(
           child: Container(
             width: screenSize.width * 0.9,
+            height: screenSize.height * 0.7,
             alignment: Alignment.center,
             child: AutoSizeText(
               string,
-              style: ContentStyle,
+              style: TabContentStyle.copyWith(fontSize: font),
               textAlign: TextAlign.center,
+              maxLines: 5,
             ),
           ),
         ),
