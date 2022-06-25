@@ -46,3 +46,16 @@ TextStyle SubContentStyle = TextStyle(
   fontSize: 20,
   fontStyle: FontStyle.italic,
 );
+
+final List imageAsset = [
+  'images/bg2.jpg',
+  'images/bg3.jpg',
+  'images/body_pic1.JPG',
+  'images/body_pic2.JPG',
+  'images/body_pic3.JPG',
+  'images/home_bg.png',
+  'images/logo_pjkt.jpg',
+  'images/kids.jpeg',
+  'images/skill_comp_pic.JPG',
+  'images/speed_comp_pic.JPG'
+];

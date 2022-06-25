@@ -17,10 +17,19 @@ class TabBarContent extends StatefulWidget {
 class _TabBarContentState extends State<TabBarContent>
     with TickerProviderStateMixin {
   TabController? _tabController;
+  var myImage;
+
   @override
   void initState() {
     _tabController = TabController(length: 3, vsync: this);
     super.initState();
+    myImage = Image.asset('images/...');
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(myImage.image, context);
   }
 
   @override
@@ -92,17 +101,17 @@ class _TabBarContentState extends State<TabBarContent>
                 Contents(
                   screenSize: widget.screenSize,
                   string: stringKidsCompetition,
-                  image: 'images/kids.jpeg',
+                  imagePath: 'images/kids.jpeg',
                 ),
                 Contents(
                   screenSize: widget.screenSize,
                   string: stringSkillCompetition,
-                  image: 'images/skill_comp_pic.JPG',
+                  imagePath: 'images/skill_comp_pic.JPG',
                 ),
                 Contents(
                   screenSize: widget.screenSize,
                   string: stringSpeedCompetition,
-                  image: 'images/speed_comp_pic.JPG',
+                  imagePath: 'images/speed_comp_pic.JPG',
                 ),
               ],
             ),
@@ -117,16 +126,21 @@ class Contents extends StatelessWidget {
   Contents(
       {Key? key,
       required this.string,
-      required this.image,
+      required this.imagePath,
       required this.screenSize})
       : super(key: key);
   final String string;
-  final String image;
+  final String imagePath;
   final Size screenSize;
   double? font;
 
   @override
   Widget build(BuildContext context) {
+    Image? myImage;
+
+    myImage = Image.asset(imagePath);
+    precacheImage(myImage.image, context);
+
     if (screenSize.width <= 720) {
       font = 14;
     } else {
@@ -140,7 +154,7 @@ class Contents extends StatelessWidget {
           child: Transform.rotate(
             angle: Math.pi / 180 * 0,
             child: Image.asset(
-              image,
+              imagePath,
               fit: BoxFit.contain,
             ),
           ),
