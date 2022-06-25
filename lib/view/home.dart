@@ -18,8 +18,6 @@ class Homepage extends StatelessWidget {
     var screenSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(backgroundColor: Colors.transparent),
-        backgroundColor: const Color(0xfffefefe),
         body: SingleChildScrollView(
           child: Container(
             width: screenSize.width,
