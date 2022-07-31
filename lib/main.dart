@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:website_parkourjkt/resource/resource.dart';
 import 'firebase_options.dart';
 import 'view/home.dart';
 
@@ -14,15 +13,6 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
   runApp(const MyApp());
   final binding = WidgetsFlutterBinding.ensureInitialized();
-
-  binding.addPostFrameCallback((_) async {
-    Element? context = binding.renderViewElement;
-    if (context != null) {
-      for (var asset in imageAsset) {
-        precacheImage(AssetImage(asset), context);
-      }
-    }
-  });
 }
 
 class MyApp extends StatelessWidget {

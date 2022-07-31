@@ -23,13 +23,11 @@ class _TabBarContentState extends State<TabBarContent>
   void initState() {
     _tabController = TabController(length: 3, vsync: this);
     super.initState();
-    myImage = Image.asset('images/...');
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    precacheImage(myImage.image, context);
   }
 
   @override
@@ -101,7 +99,7 @@ class _TabBarContentState extends State<TabBarContent>
                 Contents(
                   screenSize: widget.screenSize,
                   string: stringKidsCompetition,
-                  imagePath: 'images/kids.jpeg',
+                  imagePath: 'images/kids.jpg',
                 ),
                 Contents(
                   screenSize: widget.screenSize,
