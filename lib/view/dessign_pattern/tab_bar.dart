@@ -62,6 +62,7 @@ class _TabBarContentState extends State<TabBarContent>
                     'Kids Speed Challenge',
                     textAlign: TextAlign.center,
                     style: SubContentStyle,
+                    presetFontSizes: [20, 12],
                   ),
                 ),
                 Container(
@@ -72,6 +73,7 @@ class _TabBarContentState extends State<TabBarContent>
                     'Skill Competition',
                     textAlign: TextAlign.center,
                     style: SubContentStyle,
+                    presetFontSizes: [20, 12],
                   ),
                 ),
                 Container(
@@ -82,6 +84,7 @@ class _TabBarContentState extends State<TabBarContent>
                     'Speed Competition',
                     textAlign: TextAlign.center,
                     style: SubContentStyle,
+                    presetFontSizes: [20, 12],
                   ),
                 ),
               ],

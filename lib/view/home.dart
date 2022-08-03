@@ -180,15 +180,21 @@ class Header extends StatelessWidget {
 }
 
 class Body extends StatelessWidget {
-  const Body({
+  Body({
     Key? key,
     required this.screenSize,
   }) : super(key: key);
 
   final Size screenSize;
+  double? font;
 
   @override
   Widget build(BuildContext context) {
+    if (screenSize.width <= 720) {
+      font = 14;
+    } else {
+      font = ContentStyle.fontSize;
+    }
     return Container(
       height: screenSize.height,
       width: screenSize.width,
@@ -257,14 +263,13 @@ class Body extends StatelessWidget {
           Flexible(
             child: Container(
               width: screenSize.width * 0.8,
-              height: screenSize.height * 0.1,
+              height: screenSize.height * 0.2,
               alignment: Alignment.center,
               child: AutoSizeText(
                 stringBackgroundEvent,
                 textAlign: TextAlign.center,
-                style: ContentStyle,
+                style: ContentStyle.copyWith(fontSize: font),
                 maxLines: 5,
-                presetFontSizes: [20, 14],
               ),
             ),
           ),
