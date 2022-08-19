@@ -7,8 +7,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:website_parkourjkt/resource/resource.dart';
 import 'package:website_parkourjkt/view/dessign_pattern/bullet_text.dart';
 import 'package:website_parkourjkt/view/dessign_pattern/countdown.dart';
+import 'package:website_parkourjkt/view/dessign_pattern/dropdown_tab.dart';
+import 'package:website_parkourjkt/view/dessign_pattern/image_dialog.dart';
 import 'package:website_parkourjkt/view/dessign_pattern/social_media_button.dart';
-import 'package:website_parkourjkt/view/dessign_pattern/tab_bar.dart';
 
 class Homepage extends StatelessWidget {
   Homepage({super.key});
@@ -61,7 +62,7 @@ class Header extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Flexible(
+          Expanded(
             flex: 1,
             child: Container(
               child: Image.asset(
@@ -70,21 +71,33 @@ class Header extends StatelessWidget {
             ),
           ),
           Flexible(
-            flex: 2,
+            flex: 3,
             child: Container(
               width: screenSize.width * 0.9,
               child: AutoSizeText(
                 stringHeader,
                 style: HeaderStyle,
                 textAlign: TextAlign.center,
-                presetFontSizes: [60, 40, 30],
+                presetFontSizes: [60, 40, 30, 20],
                 maxLines: 3,
               ),
             ),
           ),
           Flexible(
-            fit: FlexFit.tight,
-            flex: 3,
+            flex: 1,
+            child: Container(
+              width: screenSize.width * 0.9,
+              child: AutoSizeText(
+                eventDate,
+                style: HeaderStyle,
+                textAlign: TextAlign.center,
+                presetFontSizes: [30, 24],
+                maxLines: 3,
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 5,
             child: Container(
               foregroundDecoration:
                   BoxDecoration(color: Colors.white.withOpacity(0)),
@@ -92,83 +105,77 @@ class Header extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BulletText(
-                  text: 'KIDS SPEED CHALLENGE',
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          Expanded(
+                            child: BulletText(
+                              text: 'KIDS SPEED CHALLENGE',
+                            ),
+                          ),
+                          Expanded(
+                            child: BulletText(
+                              text: 'SKILL COMPETITION',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                BulletText(
-                  text: 'SKILL COMPETITION',
-                ),
-                BulletText(
-                  text: 'SPEED COMPETITION',
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: BulletText(
+                                text: "WOMEN'S SPEED CHALLENGE",
+                              ),
+                            ),
+                            Expanded(
+                              child: BulletText(
+                                text: 'SPEED COMPETITION',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
-          Flexible(
+          Expanded(
             flex: 1,
             child: Container(
+              alignment: Alignment.bottomCenter,
               child: AutoSizeText(
-                'SUPPORTED BY',
-                style: ContentStyle,
+                'LIMITED EDITION MERCHANDISE',
+                style: ContentStyle.copyWith(fontSize: 24),
                 textAlign: TextAlign.center,
-                presetFontSizes: [20, 14],
               ),
             ),
           ),
           Expanded(
+            flex: 2,
             child: Container(
               width: screenSize.width,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.black,
-                    radius: 30,
-                    child: Center(
-                      child: AutoSizeText(
-                        'LOGO',
-                        style: SubContentStyle.copyWith(color: Colors.white),
-                        presetFontSizes: [14],
-                      ),
-                    ),
-                  ),
-                  CircleAvatar(
-                    backgroundColor: Colors.black,
-                    radius: 30,
-                    child: Center(
-                      child: AutoSizeText(
-                        'LOGO',
-                        style: SubContentStyle.copyWith(color: Colors.white),
-                        presetFontSizes: [14],
-                      ),
-                    ),
-                  ),
-                  CircleAvatar(
-                    backgroundColor: Colors.black,
-                    radius: 30,
-                    child: Center(
-                      child: AutoSizeText(
-                        'LOGO',
-                        style: SubContentStyle.copyWith(color: Colors.white),
-                        presetFontSizes: [14],
-                      ),
-                    ),
-                  ),
-                  CircleAvatar(
-                    backgroundColor: Colors.black,
-                    radius: 30,
-                    child: Center(
-                      child: AutoSizeText(
-                        'LOGO',
-                        style: SubContentStyle.copyWith(color: Colors.white),
-                        presetFontSizes: [14],
-                      ),
-                    ),
-                  ),
+                  ImageDialog(images: 'images/merc1.JPG'),
+                  ImageDialog(images: 'images/merc2.JPG'),
+                  ImageDialog(images: 'images/merc3.JPG'),
                 ],
               ),
             ),
@@ -301,7 +308,7 @@ class Footer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Expanded(
-            flex: 0,
+            flex: 1,
             child: Container(
               height: screenSize.height * 0.1,
               width: screenSize.width,
@@ -314,18 +321,29 @@ class Footer extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 6,
-            child: TabBarContent(screenSize: screenSize),
+            flex: 4,
+            child: DropDownTab(
+              screenSize: screenSize,
+            ),
           ),
+          // DropDownContent(
+          //   screenSize: screenSize,
+          //   string: stringKidsCompetition,
+          //   imagePath: 'images/kids.jpg',
+          // ),
+          // Expanded(
+          //   flex: 6,
+          //   child: TabBarContent(screenSize: screenSize),
+          // ),
           Expanded(
-            flex: 3,
+            flex: 1,
             child: Container(
               width: screenSize.width * 0.9,
               child: CountDownTimer(),
             ),
           ),
           Expanded(
-            flex: 2,
+            flex: 1,
             child: Container(
               width: screenSize.width * 0.6,
               child: Row(

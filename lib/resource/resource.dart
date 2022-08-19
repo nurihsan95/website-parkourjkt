@@ -5,11 +5,14 @@ const String stringHeader = '15th Anniversary & Parkour Competition';
 const String stringBackgroundEvent =
     'Parkour Jakarta akan mengadakan kegiatan yang berbeda dengan memberikan kompetisi parkour sekaligus untuk merayakan hari jadi komunitas yang ke 15 tahun.';
 const String stringKidsCompetition =
-    'Challenge berupa, adu kecepatan dari garis Start sampai Finish dengan melalui titik yang ditentukan. Untuk challenge ini peserta dibatasi umur nya mulai dari 10-13 tahun.';
+    'Challenge berupa, adu kecepatan dari garis Start sampai Finish dengan melalui jalur yang ditentukan. Untuk challenge ini peserta dibatasi hanya untuk usia 10-13 tahun.';
 const String stringSkillCompetition =
     'Kompetisi untuk membuktikan seberapa banyak teknik parkour yang sudah dikuasai dengan melakukan tantangan yang sudah ditentukan.';
 const String stringSpeedCompetition =
-    'Melakukan gerakan parkour dari titik A ke titik B, secepat mungkin, tanpa melewati titik yang harus ditentukan.';
+    'Melakukan gerakan parkour dari titik A ke titik B, secepat mungkin tanpa melewati titik yang sudah ditentukan.';
+const String stringWomenSpeedCompetition =
+    'Challenge berupa, adu kecepatan dari garis Start sampai Finish dengan melalui jalur yang ditentukan. Challenge ini khusus untuk praktisi perempuan.';
+const String eventDate = '28 Agustus 2022';
 
 const Color youtubeColor = Color(0xffff0000);
 const Color twitterColor = Color(0xff00ABEA);

@@ -34,7 +34,7 @@ class MyWidget extends StatelessWidget {
       return MaterialApp(
         builder: (context, child) => ResponsiveWrapper.builder(
           BouncingScrollWrapper.builder(context, child!),
-          maxWidthLandscape: 800,
+          maxWidthLandscape: 1000,
           minWidthLandscape: 360,
           landscapePlatforms: [ResponsiveTargetPlatform.web],
           useShortestSide: true,
@@ -60,11 +60,11 @@ class MyWidget extends StatelessWidget {
         builder: (context, child) => ResponsiveWrapper.builder(
           BouncingScrollWrapper.builder(context, child!),
           maxWidthLandscape: 480,
-          minWidthLandscape: 360,
+          minWidthLandscape: 240,
           landscapePlatforms: [ResponsiveTargetPlatform.web],
           useShortestSide: true,
           breakpointsLandscape: [
-            ResponsiveBreakpoint.resize(360, name: MOBILE),
+            ResponsiveBreakpoint.resize(240, name: MOBILE),
             ResponsiveBreakpoint.resize(400, name: MOBILE),
           ],
           defaultScale: true,

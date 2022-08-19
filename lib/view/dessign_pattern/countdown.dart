@@ -18,10 +18,6 @@ class _CountDownTimerState extends State<CountDownTimer> {
     super.initState();
   }
 
-  void dispose() {
-    super.dispose();
-  }
-
   Timer? countdownTimer;
 
   static DateTime finalDateTime =
