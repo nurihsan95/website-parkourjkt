@@ -91,7 +91,7 @@ class Header extends StatelessWidget {
                 eventDate,
                 style: HeaderStyle,
                 textAlign: TextAlign.center,
-                presetFontSizes: [30, 24],
+                presetFontSizes: [30, 24, 20],
                 maxLines: 3,
               ),
             ),
@@ -112,19 +112,21 @@ class Header extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Column(
-                        children: [
-                          Expanded(
-                            child: BulletText(
-                              text: 'KIDS SPEED CHALLENGE',
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: BulletText(
+                                text: 'KIDS SPEED CHALLENGE',
+                              ),
                             ),
-                          ),
-                          Expanded(
-                            child: BulletText(
-                              text: 'SKILL COMPETITION',
+                            Expanded(
+                              child: BulletText(
+                                text: 'SKILL COMPETITION',
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -161,8 +163,9 @@ class Header extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: AutoSizeText(
                 'LIMITED EDITION MERCHANDISE',
-                style: ContentStyle.copyWith(fontSize: 24),
+                style: ContentStyle,
                 textAlign: TextAlign.center,
+                presetFontSizes: [24, 20],
               ),
             ),
           ),
@@ -336,30 +339,33 @@ class Footer extends StatelessWidget {
           //   child: TabBarContent(screenSize: screenSize),
           // ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: Container(
               width: screenSize.width * 0.9,
               child: CountDownTimer(),
             ),
           ),
           Expanded(
-            flex: 1,
-            child: Container(
-              width: screenSize.width * 0.6,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SocialMediaButton(
+            flex: 2,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: SocialMediaButton(
                     text: 'YT',
                   ),
-                  SocialMediaButton(
+                ),
+                Expanded(
+                  child: SocialMediaButton(
                     text: 'FB',
                   ),
-                  SocialMediaButton(
+                ),
+                Expanded(
+                  child: SocialMediaButton(
                     text: 'IG',
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],

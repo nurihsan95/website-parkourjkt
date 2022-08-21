@@ -30,7 +30,7 @@ class SocialMediaButton extends StatelessWidget {
 
     return CircleAvatar(
       backgroundColor: Colors.black,
-      radius: 24,
+      radius: 30,
       child: ElevatedButton(
         onPressed: _launchURL,
         child: Center(

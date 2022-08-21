@@ -19,6 +19,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
   }
 
   Timer? countdownTimer;
+  bool _isOver = false;
 
   static DateTime finalDateTime =
       DateTime(2022, 8, 28); //TODO: Set tanggal sebenarnya
@@ -36,6 +37,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
       final seconds = dateDifference.inSeconds - reduceSecondsBy;
       if (seconds < 0) {
         countdownTimer!.cancel();
+        _isOver = true;
       } else {
         dateDifference = Duration(seconds: seconds);
       }
@@ -236,7 +238,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
               onPrimary: Color(0xFF000000),
               primary: Color(0xFFFFcb05),
             ),
-            onPressed: _launchURL,
+            onPressed: _isOver ? null : _launchURL,
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 2),
               child: AutoSizeText(

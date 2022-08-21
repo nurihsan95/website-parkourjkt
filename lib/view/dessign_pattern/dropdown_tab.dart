@@ -25,58 +25,61 @@ class _DropDownTabState extends State<DropDownTab> {
       font = ContentStyle.fontSize;
     }
     return Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      Container(
-        color: Colors.white,
-        width: double.maxFinite,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 50),
-          child: DropdownButton<String>(
-            alignment: AlignmentDirectional.centerEnd,
-            isExpanded: true,
-            itemHeight: 60,
-            dropdownColor: Color(0xfffefefe),
-            style: SubContentStyle.copyWith(fontSize: 24),
-            value: dropdownValue,
-            underline: Container(
-              height: 5,
-              color: Color(0xFFFFcb05),
+      Flexible(
+        child: Container(
+          color: Colors.white,
+          width: double.maxFinite,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 50),
+            child: DropdownButton<String>(
+              alignment: AlignmentDirectional.centerEnd,
+              isExpanded: true,
+              itemHeight: 60,
+              dropdownColor: Color(0xfffefefe),
+              style: SubContentStyle.copyWith(fontSize: 24),
+              value: dropdownValue,
+              underline: Container(
+                height: 3,
+                color: Color(0xFFFFcb05),
+              ),
+              items: <String>[
+                "Kids Speed Challenge",
+                "Skill Competition",
+                "Speed Competition",
+                "Women's Speed Challenge"
+              ]
+                  .map<DropdownMenuItem<String>>(
+                      (value) => DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          ))
+                  .toList(),
+              onChanged: (newValue) => setState(() {
+                dropdownValue = newValue;
+                switch (dropdownValue) {
+                  case "Kids Speed Challenge":
+                    _string = stringKidsCompetition;
+                    _imagePath = 'images/kids.jpg';
+                    break;
+                  case "Skill Competition":
+                    _string = stringSkillCompetition;
+                    _imagePath = 'images/skill_comp_pic.JPG';
+                    break;
+                  case "Speed Competition":
+                    _string = stringSpeedCompetition;
+                    _imagePath = 'images/speed_comp_pic.JPG';
+                    break;
+                  case "Women's Speed Challenge":
+                    _string = stringWomenSpeedCompetition;
+                    _imagePath = 'images/women_speed_comp_pic.JPG';
+                }
+              }),
             ),
-            items: <String>[
-              "Kids Speed Challenge",
-              "Skill Competition",
-              "Speed Competition",
-              "Women's Speed Challenge"
-            ]
-                .map<DropdownMenuItem<String>>(
-                    (value) => DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        ))
-                .toList(),
-            onChanged: (newValue) => setState(() {
-              dropdownValue = newValue;
-              switch (dropdownValue) {
-                case "Kids Speed Challenge":
-                  _string = stringKidsCompetition;
-                  _imagePath = 'images/kids.jpg';
-                  break;
-                case "Skill Competition":
-                  _string = stringSkillCompetition;
-                  _imagePath = 'images/skill_comp_pic.JPG';
-                  break;
-                case "Speed Competition":
-                  _string = stringSpeedCompetition;
-                  _imagePath = 'images/speed_comp_pic.JPG';
-                  break;
-                case "Women's Speed Challenge":
-                  _string = stringWomenSpeedCompetition;
-                  _imagePath = 'images/women_speed_comp_pic.JPG';
-              }
-            }),
           ),
         ),
       ),
       Flexible(
+        flex: 3,
         child: SizedBox(
             width: double.maxFinite,
             height: 600,

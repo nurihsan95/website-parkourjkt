@@ -20,10 +20,7 @@ class BulletText extends StatelessWidget {
     } else {
       fontsize = SubContentStyle.fontSize;
     }
-    return Container(
-      alignment: Alignment.center,
-      width: screenSize.width * 0.325,
-      height: screenSize.height * 0.325,
+    return Center(
       child: AutoSizeText(
         text,
         textAlign: TextAlign.center,
