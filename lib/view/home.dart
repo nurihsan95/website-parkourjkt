@@ -297,7 +297,7 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: screenSize.height,
+      height: screenSize.height * 1.2,
       width: screenSize.width,
       decoration: BoxDecoration(
         color: Color(0xfffefefe),
@@ -329,15 +329,6 @@ class Footer extends StatelessWidget {
               screenSize: screenSize,
             ),
           ),
-          // DropDownContent(
-          //   screenSize: screenSize,
-          //   string: stringKidsCompetition,
-          //   imagePath: 'images/kids.jpg',
-          // ),
-          // Expanded(
-          //   flex: 6,
-          //   child: TabBarContent(screenSize: screenSize),
-          // ),
           Expanded(
             flex: 2,
             child: Container(
@@ -348,7 +339,47 @@ class Footer extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: ExactAssetImage("images/bounce.jpg"),
+                            fit: BoxFit.contain)),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: ExactAssetImage("images/geoff.jpg"),
+                            fit: BoxFit.contain)),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: ExactAssetImage("images/mxc.jpg"),
+                            fit: BoxFit.contain)),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: ExactAssetImage("images/wb.jpg"),
+                            fit: BoxFit.contain)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
                   child: SocialMediaButton(

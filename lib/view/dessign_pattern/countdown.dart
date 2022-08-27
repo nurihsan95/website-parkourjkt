@@ -58,10 +58,21 @@ class _CountDownTimerState extends State<CountDownTimer> {
       }
     }
 
-    final days = (dateDifference.inDays).toString();
-    final hours = (dateDifference.inHours.remainder(24)).toString();
-    final minutes = (dateDifference.inMinutes.remainder(60).toString());
-    final seconds = (dateDifference.inSeconds.remainder(60).toString());
+    final days;
+    final hours;
+    final minutes;
+    final seconds;
+    if (_isOver) {
+      days = "0";
+      hours = "0";
+      minutes = "0";
+      seconds = "0";
+    } else {
+      days = (dateDifference.inDays).toString();
+      hours = (dateDifference.inHours.remainder(24)).toString();
+      minutes = (dateDifference.inMinutes.remainder(60).toString());
+      seconds = (dateDifference.inSeconds.remainder(60).toString());
+    }
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
